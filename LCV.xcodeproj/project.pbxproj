@@ -8,20 +8,46 @@
 
 /* Begin PBXBuildFile section */
 		3545BB1C1CFED3DF008CA0D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545BB1B1CFED3DF008CA0D6 /* AppDelegate.swift */; };
-		3545BB1E1CFED3DF008CA0D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545BB1D1CFED3DF008CA0D6 /* ViewController.swift */; };
 		3545BB211CFED3DF008CA0D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3545BB1F1CFED3DF008CA0D6 /* Main.storyboard */; };
 		3545BB231CFED3DF008CA0D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3545BB221CFED3DF008CA0D6 /* Assets.xcassets */; };
 		3545BB261CFED3DF008CA0D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3545BB241CFED3DF008CA0D6 /* LaunchScreen.storyboard */; };
+		3545BB361CFED429008CA0D6 /* BinaryImageClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545BB2D1CFED429008CA0D6 /* BinaryImageClasses.swift */; };
+		3545BB371CFED429008CA0D6 /* BinaryImageContours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545BB2E1CFED429008CA0D6 /* BinaryImageContours.swift */; };
+		3545BB381CFED429008CA0D6 /* ColorImageFilterings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545BB2F1CFED429008CA0D6 /* ColorImageFilterings.swift */; };
+		3545BB391CFED429008CA0D6 /* ColorImageRepClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545BB301CFED429008CA0D6 /* ColorImageRepClasses.swift */; };
+		3545BB3A1CFED429008CA0D6 /* ContoursClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545BB311CFED429008CA0D6 /* ContoursClasses.swift */; };
+		3545BB3B1CFED429008CA0D6 /* ConvexHull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545BB321CFED429008CA0D6 /* ConvexHull.swift */; };
+		3545BB3C1CFED429008CA0D6 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545BB331CFED429008CA0D6 /* Operators.swift */; };
+		3545BB3D1CFED429008CA0D6 /* MinRotBoundRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3545BB341CFED429008CA0D6 /* MinRotBoundRect.swift */; };
+		3545BB3E1CFED429008CA0D6 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 3545BB351CFED429008CA0D6 /* TODO */; };
+		355FF1F61D0C92CC0031761D /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355FF1F51D0C92CC0031761D /* VideoCapture.swift */; };
+		355FF1F81D0CA87C0031761D /* SampleVideoProcessingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 355FF1F71D0CA87C0031761D /* SampleVideoProcessingVC.swift */; };
+		35A446711D03F9BC005D89F9 /* BoundingRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A446701D03F9BC005D89F9 /* BoundingRectangle.swift */; };
+		35A446741D03FF16005D89F9 /* RectangleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A446731D03FF16005D89F9 /* RectangleInterface.swift */; };
+		35FB9B0E1D02174700904E88 /* RectangleDrawing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35FB9B0D1D02174700904E88 /* RectangleDrawing.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3545BB181CFED3DF008CA0D6 /* LCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3545BB1B1CFED3DF008CA0D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3545BB1D1CFED3DF008CA0D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3545BB201CFED3DF008CA0D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3545BB221CFED3DF008CA0D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3545BB251CFED3DF008CA0D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3545BB271CFED3DF008CA0D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3545BB2D1CFED429008CA0D6 /* BinaryImageClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryImageClasses.swift; sourceTree = "<group>"; };
+		3545BB2E1CFED429008CA0D6 /* BinaryImageContours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryImageContours.swift; sourceTree = "<group>"; };
+		3545BB2F1CFED429008CA0D6 /* ColorImageFilterings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorImageFilterings.swift; sourceTree = "<group>"; };
+		3545BB301CFED429008CA0D6 /* ColorImageRepClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorImageRepClasses.swift; sourceTree = "<group>"; };
+		3545BB311CFED429008CA0D6 /* ContoursClasses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContoursClasses.swift; sourceTree = "<group>"; };
+		3545BB321CFED429008CA0D6 /* ConvexHull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvexHull.swift; sourceTree = "<group>"; };
+		3545BB331CFED429008CA0D6 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
+		3545BB341CFED429008CA0D6 /* MinRotBoundRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinRotBoundRect.swift; sourceTree = "<group>"; };
+		3545BB351CFED429008CA0D6 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		355FF1F51D0C92CC0031761D /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		355FF1F71D0CA87C0031761D /* SampleVideoProcessingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleVideoProcessingVC.swift; sourceTree = "<group>"; };
+		35A446701D03F9BC005D89F9 /* BoundingRectangle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingRectangle.swift; sourceTree = "<group>"; };
+		35A446731D03FF16005D89F9 /* RectangleInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleInterface.swift; sourceTree = "<group>"; };
+		35FB9B0D1D02174700904E88 /* RectangleDrawing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleDrawing.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +80,75 @@
 		3545BB1A1CFED3DF008CA0D6 /* LCV */ = {
 			isa = PBXGroup;
 			children = (
+				3545BB3F1CFED439008CA0D6 /* Core */,
+				3545BB401CFED44B008CA0D6 /* ImgProc */,
+				3545BB411CFED4A8008CA0D6 /* RotatedCalipers */,
+				35FB9B0F1D02174D00904E88 /* Drawing */,
+				35A446721D03F9C0005D89F9 /* BoundingObjects */,
+				35A446751D03FF32005D89F9 /* Interfaces */,
+				3545BB351CFED429008CA0D6 /* TODO */,
 				3545BB1B1CFED3DF008CA0D6 /* AppDelegate.swift */,
-				3545BB1D1CFED3DF008CA0D6 /* ViewController.swift */,
 				3545BB1F1CFED3DF008CA0D6 /* Main.storyboard */,
+				355FF1F71D0CA87C0031761D /* SampleVideoProcessingVC.swift */,
 				3545BB221CFED3DF008CA0D6 /* Assets.xcassets */,
 				3545BB241CFED3DF008CA0D6 /* LaunchScreen.storyboard */,
 				3545BB271CFED3DF008CA0D6 /* Info.plist */,
 			);
 			path = LCV;
+			sourceTree = "<group>";
+		};
+		3545BB3F1CFED439008CA0D6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				355FF1F51D0C92CC0031761D /* VideoCapture.swift */,
+				3545BB2D1CFED429008CA0D6 /* BinaryImageClasses.swift */,
+				3545BB301CFED429008CA0D6 /* ColorImageRepClasses.swift */,
+				3545BB311CFED429008CA0D6 /* ContoursClasses.swift */,
+				3545BB331CFED429008CA0D6 /* Operators.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		3545BB401CFED44B008CA0D6 /* ImgProc */ = {
+			isa = PBXGroup;
+			children = (
+				3545BB2E1CFED429008CA0D6 /* BinaryImageContours.swift */,
+				3545BB2F1CFED429008CA0D6 /* ColorImageFilterings.swift */,
+				3545BB321CFED429008CA0D6 /* ConvexHull.swift */,
+			);
+			name = ImgProc;
+			sourceTree = "<group>";
+		};
+		3545BB411CFED4A8008CA0D6 /* RotatedCalipers */ = {
+			isa = PBXGroup;
+			children = (
+				3545BB341CFED429008CA0D6 /* MinRotBoundRect.swift */,
+			);
+			name = RotatedCalipers;
+			sourceTree = "<group>";
+		};
+		35A446721D03F9C0005D89F9 /* BoundingObjects */ = {
+			isa = PBXGroup;
+			children = (
+				35A446701D03F9BC005D89F9 /* BoundingRectangle.swift */,
+			);
+			name = BoundingObjects;
+			sourceTree = "<group>";
+		};
+		35A446751D03FF32005D89F9 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				35A446731D03FF16005D89F9 /* RectangleInterface.swift */,
+			);
+			name = Interfaces;
+			sourceTree = "<group>";
+		};
+		35FB9B0F1D02174D00904E88 /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				35FB9B0D1D02174700904E88 /* RectangleDrawing.swift */,
+			);
+			name = Drawing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,12 +177,16 @@
 		3545BB101CFED3DF008CA0D6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Leon;
 				TargetAttributes = {
 					3545BB171CFED3DF008CA0D6 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = B7N75QHJJC;
+						DevelopmentTeamName = "Marius Agmon";
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -124,6 +215,7 @@
 			files = (
 				3545BB261CFED3DF008CA0D6 /* LaunchScreen.storyboard in Resources */,
 				3545BB231CFED3DF008CA0D6 /* Assets.xcassets in Resources */,
+				3545BB3E1CFED429008CA0D6 /* TODO in Resources */,
 				3545BB211CFED3DF008CA0D6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,8 +227,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3545BB1E1CFED3DF008CA0D6 /* ViewController.swift in Sources */,
+				3545BB391CFED429008CA0D6 /* ColorImageRepClasses.swift in Sources */,
+				3545BB371CFED429008CA0D6 /* BinaryImageContours.swift in Sources */,
+				35FB9B0E1D02174700904E88 /* RectangleDrawing.swift in Sources */,
+				3545BB3B1CFED429008CA0D6 /* ConvexHull.swift in Sources */,
+				35A446741D03FF16005D89F9 /* RectangleInterface.swift in Sources */,
+				35A446711D03F9BC005D89F9 /* BoundingRectangle.swift in Sources */,
+				3545BB3D1CFED429008CA0D6 /* MinRotBoundRect.swift in Sources */,
+				355FF1F61D0C92CC0031761D /* VideoCapture.swift in Sources */,
+				355FF1F81D0CA87C0031761D /* SampleVideoProcessingVC.swift in Sources */,
+				3545BB381CFED429008CA0D6 /* ColorImageFilterings.swift in Sources */,
+				3545BB3A1CFED429008CA0D6 /* ContoursClasses.swift in Sources */,
+				3545BB361CFED429008CA0D6 /* BinaryImageClasses.swift in Sources */,
 				3545BB1C1CFED3DF008CA0D6 /* AppDelegate.swift in Sources */,
+				3545BB3C1CFED429008CA0D6 /* Operators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,10 +353,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = LCV/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Leon.LCV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -260,10 +368,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = LCV/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Leon.LCV;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -286,6 +398,7 @@
 				3545BB2C1CFED3DF008CA0D6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
