@@ -50,6 +50,9 @@ extension Contour {
             upperPoints.append(point)
 
         }
+        
+        // TODO: Fix above code duplicates
+        
         // removing duplicates
         upperPoints.removeLast()
         lowerPoints.removeLast()

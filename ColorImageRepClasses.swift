@@ -88,10 +88,11 @@ class ColorImage: NSObject {
     
     // MARK: - Constants
     /// the number of bits in a component(aka: red, green, blue, alpha)
-    
     let bitsPerComponent = 8
     /// the number of bytes in a pixel (the number of components in a pixel)
     let bytesPerPixel = 4
+    /// the bitmap info taken from the UIImage the instance was init with
+    var bitmapInfo: UInt32
     
     // MARK: - Initializers
     
@@ -107,18 +108,19 @@ class ColorImage: NSObject {
         width = Int(image.size.width)
         height = Int(image.size.height)
         
+        // setting image properties:
         let bytesPerRow = width * bytesPerPixel
-        // allocating the needed space for the image
-        let imageData = UnsafeMutablePointer<ColorPixel>(bitPattern: width * height)
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         
-        var bitmapInfo: UInt32 = CGBitmapInfo.byteOrder32Big.rawValue
+        // allocating the needed space for the image
+        let imageData = UnsafeMutablePointer<ColorPixel>.init(allocatingCapacity: width * height)
+        
         // creating the info for the pixels bitmap(e.g we want the alpha in the last 8 bytes, and we want an alpha value)
-        bitmapInfo |= CGImageAlphaInfo.premultipliedLast.rawValue & CGBitmapInfo.alphaInfoMask.rawValue
+        bitmapInfo = cgImage.bitmapInfo.rawValue
         // setting the data to the imageData
         guard let imageContext = CGContext(data: imageData, width: width, height: height, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo) else { return nil }
-        imageContext.draw(in: CGRect(origin: CGPoint.zero, size: image.size), image: cgImage)
         
+        imageContext.draw(in: CGRect(origin: CGPoint.zero, size: image.size), image: cgImage)
         pixels = UnsafeMutableBufferPointer<ColorPixel>(start: imageData, count: width * height)
         
     }
@@ -140,9 +142,7 @@ class ColorImage: NSObject {
         let bytesPerRow = width * bytesPerPixel
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         
-        var bitmapInfo: UInt32 = CGBitmapInfo.byteOrder32Big.rawValue
         // creating the info for the pixels bitmap(e.g we want the alpha in the last 8 bytes, and we want an alpha value)
-        bitmapInfo |= CGImageAlphaInfo.premultipliedLast.rawValue & CGBitmapInfo.alphaInfoMask.rawValue
         let imageContext = CGContext(data: pixels.baseAddress, width: width, height: height, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo, releaseCallback: nil, releaseInfo: nil)
         guard let cgImage = imageContext?.makeImage() else {return nil}
         return UIImage(cgImage: cgImage)

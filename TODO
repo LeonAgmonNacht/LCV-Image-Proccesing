@@ -1,6 +1,6 @@
 2) add docs to operators
 3) switch all code to GLKVector, need to see how to do in ColorImage, maybe just in binary image is enougth
-4) check what is faster and how much, class or struct and consider switching, result of searching- strcut are on stack and classes on heap, therefor sometimes much faster. forth checking
+4) check what is faster and how much, class or struct and consider switching, result of searching- strcut are on stack and classes on heap, therefor sometimes much faster. worth checking
 5) other time improvments, such as switching rotated rectnagle and etc to UnSafeMutablePointer
 6) get image from camera of iphone(video) and then pi
 7) create a general image class

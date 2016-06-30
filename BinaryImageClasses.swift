@@ -30,9 +30,9 @@ class BinaryImage: NSObject {
     init(width: Int, height: Int, defultValue: Bool = false) {
         self.width = width
         self.height = height
-        let pointer = UnsafeMutablePointer<Bool>(bitPattern: width*height)
+        let pointer = UnsafeMutablePointer<Bool>.init(allocatingCapacity: width*height)
         pixels = UnsafeMutableBufferPointer<Bool>(start: pointer, count: width*height)
-        for i in 0..<height*width { // allocating the new memory
+        for i in 0..<height*width { // init the new memory
             pixels[i] = defultValue
         }
     }
@@ -112,7 +112,7 @@ class BinaryImage: NSObject {
         let clone = BinaryImage()
         clone.width = self.width
         clone.height = self.height
-        clone.pixels = UnsafeMutableBufferPointer<Bool>.init(start: UnsafeMutablePointer<Bool>(bitPattern: pixels.count), count: pixels.count)
+        clone.pixels = UnsafeMutableBufferPointer<Bool>.init(start: UnsafeMutablePointer<Bool>.init(allocatingCapacity: pixels.count), count: pixels.count)
         clone.pixels.baseAddress?.assignFrom(pixels.baseAddress!, count: pixels.count)
         return clone
     }

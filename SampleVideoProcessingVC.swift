@@ -39,8 +39,7 @@ class SampleVideoProcessingVC: UIViewController {
         if cam!.canCapture() {
             cam!.getImageDataWithComplition(complition: { (data, error) in
                 if error == nil {
-                    
-                    let imageToProc = ColorImage(image: UIImage(data: data as Data)!)!
+                    let imageToProc = ColorImage(image: UIImage(data: data)!)!
                     let binaryOutput = imageToProc.thresholdWithColorBounds(lower: (0, 80, 0), upper: (100, 255, 100))
                     
                     let contours = binaryOutput.detectContours()
