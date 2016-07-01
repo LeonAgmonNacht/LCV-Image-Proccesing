@@ -4,4 +4,3 @@
 5) other time improvments, such as switching rotated rectnagle and etc to UnSafeMutablePointer
 6) get image from camera of iphone(video) and then pi
 7) create a general image class
-8) fix problem causing image to flip

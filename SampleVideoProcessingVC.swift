@@ -39,24 +39,32 @@ class SampleVideoProcessingVC: UIViewController {
         if cam!.canCapture() {
             cam!.getImageDataWithComplition(complition: { (data, error) in
                 if error == nil {
-                    let imageToProc = ColorImage(image: UIImage(data: data)!)!
-                    let binaryOutput = imageToProc.thresholdWithColorBounds(lower: (0, 80, 0), upper: (100, 255, 100))
+                    let capturedImage = UIImage(data: data)
+                    let imageToProc = ColorImage(image: capturedImage!)!
+                    let binaryOutput = imageToProc.thresholdWithColorBounds(lower: (0, 80, 0), upper: (80, 255, 80))
                     
                     let contours = binaryOutput.detectContours()
                     let biggestContour = contours.max { (con1, con2) -> Bool in
                         return con1.size < con2.size
                     }
                     
+                    let resultImage = binaryOutput.toColorImage()!
+                    
                     if biggestContour != nil {
                         let convexPoints = biggestContour?.convexHull()
                         let boundingBox = convexPoints?.getMinEnclosingRect()
-                        let boudingRectangle = biggestContour!.getBoundingRectangle()
+                        let boudingRectangle = biggestContour?.getBoundingRectangle()
                         
-                        RectangleDrawing.drawRectangle(image: imageToProc, rect: boudingRectangle, color: (0,0,0))
-                        RectangleDrawing.drawRectangle(image: imageToProc, rect: boundingBox!, color: (255,255,255))
                         
-                        self.displayImage.image = imageToProc.toUIImage()
+                        RectangleDrawing.drawRectangle(image: resultImage,
+                                                       rect: boudingRectangle!,
+                                                       color: (255,0,0))
+                        RectangleDrawing.drawRectangle(image: resultImage,
+                                                       rect: boundingBox!,
+                                                       color: (0,255,255))
                     }
+                    self.displayImage.image = resultImage.toUIImage()
+
                 }
                 else {
                     print(error)

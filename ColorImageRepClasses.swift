@@ -93,6 +93,8 @@ class ColorImage: NSObject {
     let bytesPerPixel = 4
     /// the bitmap info taken from the UIImage the instance was init with
     var bitmapInfo: UInt32
+    /// the orientation info taken from the UIImage the instance was init with
+    var imageOrientation: UIImageOrientation
     
     // MARK: - Initializers
     
@@ -111,6 +113,7 @@ class ColorImage: NSObject {
         // setting image properties:
         let bytesPerRow = width * bytesPerPixel
         let colorSpace = CGColorSpaceCreateDeviceRGB()
+        imageOrientation = image.imageOrientation
         
         // allocating the needed space for the image
         let imageData = UnsafeMutablePointer<ColorPixel>.init(allocatingCapacity: width * height)
@@ -142,10 +145,12 @@ class ColorImage: NSObject {
         let bytesPerRow = width * bytesPerPixel
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         
-        // creating the info for the pixels bitmap(e.g we want the alpha in the last 8 bytes, and we want an alpha value)
         let imageContext = CGContext(data: pixels.baseAddress, width: width, height: height, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: bitmapInfo, releaseCallback: nil, releaseInfo: nil)
+        
         guard let cgImage = imageContext?.makeImage() else {return nil}
-        return UIImage(cgImage: cgImage)
+        let resultImage = UIImage(cgImage: cgImage, scale: 1, orientation: imageOrientation)
+        
+        return resultImage
     }
     /**
      returns/set the pixel in the index (row, col) = indexes

@@ -17,7 +17,8 @@ class BinaryImage: NSObject {
     var width: Int
     /// the height of the image represented in self
     var height: Int
-    
+    /// the orientation of the represented image
+    var imageOrientation: UIImageOrientation = .right
     // MARK: - initializers
     
     /**
@@ -58,6 +59,15 @@ class BinaryImage: NSObject {
      - returns: a UIImage holding the data in self
      */
     func toUIImage() -> UIImage? {
+        let colorImage = self.toColorImage()
+        return colorImage?.toUIImage()
+    }
+    /**
+     calculates and returns the ColorImage representation of self, needed mostly to display. The pixels in the return image is as in Bool.toColorPixel
+     
+     - returns: a ColorImage holding the data in self
+     */
+    func toColorImage() -> ColorImage? {
         // creating a black image
         let size = CGSize(width: width, height: height)
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
@@ -68,6 +78,8 @@ class BinaryImage: NSObject {
         UIGraphicsEndImageContext()
         
         let colorImage = ColorImage(image: blackImage)
+        colorImage?.imageOrientation = imageOrientation
+
         for row in 0..<height {
             for col in 0..<width {
                 let pixel = self[(row,col)]
@@ -76,7 +88,7 @@ class BinaryImage: NSObject {
                 }
             }
         }
-        return colorImage?.toUIImage()
+        return colorImage
     }
     
     /**

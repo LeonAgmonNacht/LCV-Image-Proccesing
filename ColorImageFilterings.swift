@@ -28,6 +28,7 @@ extension ColorImage {
                 resultImage[(row,col)] = self[(row,col)].isInBoundes(lower: lower, upper: upper)
             }
         }
+        resultImage.imageOrientation = self.imageOrientation
         return resultImage
     }
 }
