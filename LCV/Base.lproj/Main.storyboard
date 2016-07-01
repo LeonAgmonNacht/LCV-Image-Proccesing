@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="UTA-Jr-35X">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sample Video ProcessingVC-->
+        <scene sceneID="cMl-ym-VKi">
+            <objects>
+                <viewController id="UTA-Jr-35X" customClass="SampleVideoProcessingVC" customModule="LCV" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0iL-a6-IZ6"/>
+                        <viewControllerLayoutGuide type="bottom" id="bBq-34-ylM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O4f-KK-tuN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Lw-dd-Ivj">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4Lw-dd-Ivj" firstAttribute="top" secondItem="O4f-KK-tuN" secondAttribute="topMargin" id="90c-d3-2Ir"/>
+                            <constraint firstItem="4Lw-dd-Ivj" firstAttribute="leading" secondItem="O4f-KK-tuN" secondAttribute="leadingMargin" constant="-20" id="QLO-i5-2px"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4Lw-dd-Ivj" secondAttribute="trailing" constant="-20" id="iBg-O1-F4K"/>
+                            <constraint firstItem="bBq-34-ylM" firstAttribute="top" secondItem="4Lw-dd-Ivj" secondAttribute="bottom" id="qHR-gC-V20"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="displayImage" destination="4Lw-dd-Ivj" id="Lsg-dk-2OR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lui-Pa-SpK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="387"/>
+        </scene>
+    </scenes>
+</document>
