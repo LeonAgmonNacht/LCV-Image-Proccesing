@@ -9,7 +9,7 @@
 import Foundation
 
 /**
- a class represeting a contour using its points
+ a struct represeting a contour using its points
  */
 struct Contour {
     /// the points of the contour in the format [(row, col)], each element is all the points that has the same row value. both the inner and the outer arrays are sorted ascnending

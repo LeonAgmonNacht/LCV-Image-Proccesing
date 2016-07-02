@@ -10,7 +10,7 @@ import UIKit
 /**
  manages the drawing of rectangles on an image
  */
-class RectangleDrawing: UIView {
+class RectangleDrawing {
     /**
      returns the points on the line determinated by the points point1, point2
      - Algorithem: Bresenham's line algorithm

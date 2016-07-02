@@ -108,16 +108,18 @@ class VideoCapture {
      captures a still image from the camera
      - parameter complition: a closure to execute after the new image recieved, the closure holds the data of the image
      */
-    func getImageDataWithComplition(complition: ((Data, NSError?) -> Void)) {
+    func getImageDataWithComplition(complition: ((Data?, NSError?) -> Void)) {
         if let videoConnection = stillImageOutput.connection(withMediaType: AVMediaTypeVideo) {
             stillImageOutput.captureStillImageAsynchronously(from: videoConnection) {
                 (imageDataSampleBuffer, error) -> Void in
-                if imageDataSampleBuffer == nil {
-                    // TODO: add error handlling
+                
+                if error != nil {
+                    complition(nil, error)
                     return
                 }
+                
                 let imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageDataSampleBuffer)
-                complition(imageData!, error)
+                complition(imageData, error)
             }
         }
         else {

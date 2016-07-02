@@ -12,6 +12,7 @@ class SampleVideoProcessingVC: UIViewController {
     
     let previewSize = CGSize(width: 352/2, height: 288/2)
     let previewYPadding: CGFloat = 25
+    
     var upperThreshValues: (UInt8, UInt8, UInt8) = (0,0,0)
     var lowerThreshValues: (UInt8, UInt8, UInt8) = (0,0,0)
     
@@ -23,8 +24,9 @@ class SampleVideoProcessingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setCamera()
+        
         // setting capture timer
-        timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(SampleVideoProcessingVC.getAndProcessImage), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.075, target: self, selector: #selector(SampleVideoProcessingVC.getAndProcessImage), userInfo: nil, repeats: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,6 +35,7 @@ class SampleVideoProcessingVC: UIViewController {
     }
     
     func setThresholdValues() {
+        
         upperThreshValues = (DataManager.sharedInstance.upperRed,
                                 DataManager.sharedInstance.upperGreen,
                                 DataManager.sharedInstance.upperBlue)
@@ -48,16 +51,17 @@ class SampleVideoProcessingVC: UIViewController {
             y: previewYPadding,
             width: previewSize.width,
             height: previewSize.height))
-        
         self.view.addSubview(previewView)
+        
         cam = VideoCapture(framePreset: AVCaptureSessionPreset352x288, onView: previewView)
     }
     
     func getAndProcessImage() {
         if cam!.canCapture() {
             cam!.getImageDataWithComplition(complition: { (data, error) in
-                if error == nil {
-                    let capturedImage = UIImage(data: data)
+                
+                if error == nil && data != nil {
+                    let capturedImage = UIImage(data: data!)
                     let imageToProc = ColorImage(image: capturedImage!)!
                     
                     
@@ -87,7 +91,7 @@ class SampleVideoProcessingVC: UIViewController {
                 }
                 else {
                     print(error)
-                    fatalError()
+                    //fatalError()
                 }
             })
         }

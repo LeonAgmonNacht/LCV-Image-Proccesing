@@ -30,6 +30,7 @@ extension ConvexPolygon {
         var supportParallelIndex: Int = 0
         /// the parallel line index to the current edge
         var edgeSupportParallelIndex: Int = 0
+        
         for edgeIndex in 0...points.count-1 {
             
             // finding the first perpendicular support line
@@ -55,7 +56,6 @@ extension ConvexPolygon {
             var slope: Float = 0
             
             
-            // MARK: maybe need switching 0 and 1 \/
             if points[edgeIndex].1 == points[(edgeIndex + 1) % pointsCount].1 {
                 // substracting two negative sides of the rectnagle
                 distance1 = Float(abs(points[edgeSupportParallelIndex].1 - points[edgeIndex].1))
@@ -187,7 +187,7 @@ extension ConvexPolygon {
 
 // MARK: - Helper Classes
 /**
- a class representing a rotated rectnagle using an angle, points and more
+ a class representing a rotated rectangle using an angle, points and more
  */
 struct RotatedRectangle: RectangleProtocol {
     /// the points the rectangle can be defined with, NOTE that those points aren't the corners of the rectangle, those can be retrived using rectangleCorners getRectangleCorners()
