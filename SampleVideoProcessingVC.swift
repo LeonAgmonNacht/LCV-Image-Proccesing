@@ -12,6 +12,9 @@ class SampleVideoProcessingVC: UIViewController {
     
     let previewSize = CGSize(width: 352/2, height: 288/2)
     let previewYPadding: CGFloat = 25
+    var upperThreshValues: (UInt8, UInt8, UInt8) = (0,0,0)
+    var lowerThreshValues: (UInt8, UInt8, UInt8) = (0,0,0)
+    
     var timer: Timer?
     var cam: VideoCapture?
     
@@ -22,6 +25,21 @@ class SampleVideoProcessingVC: UIViewController {
         setCamera()
         // setting capture timer
         timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(SampleVideoProcessingVC.getAndProcessImage), userInfo: nil, repeats: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setThresholdValues()
+    }
+    
+    func setThresholdValues() {
+        upperThreshValues = (DataManager.sharedInstance.upperRed,
+                                DataManager.sharedInstance.upperGreen,
+                                DataManager.sharedInstance.upperBlue)
+        lowerThreshValues = (DataManager.sharedInstance.lowerRed,
+                                DataManager.sharedInstance.lowerGreen,
+                                DataManager.sharedInstance.lowerBlue)
+
     }
     
     func setCamera() {
@@ -41,7 +59,9 @@ class SampleVideoProcessingVC: UIViewController {
                 if error == nil {
                     let capturedImage = UIImage(data: data)
                     let imageToProc = ColorImage(image: capturedImage!)!
-                    let binaryOutput = imageToProc.thresholdWithColorBounds(lower: (0, 80, 0), upper: (80, 255, 80))
+                    
+                    
+                    let binaryOutput = imageToProc.thresholdWithColorBounds(lower: self.lowerThreshValues, upper: self.upperThreshValues)
                     
                     let contours = binaryOutput.detectContours()
                     let biggestContour = contours.max { (con1, con2) -> Bool in
@@ -54,7 +74,6 @@ class SampleVideoProcessingVC: UIViewController {
                         let convexPoints = biggestContour?.convexHull()
                         let boundingBox = convexPoints?.getMinEnclosingRect()
                         let boudingRectangle = biggestContour?.getBoundingRectangle()
-                        
                         
                         RectangleDrawing.drawRectangle(image: resultImage,
                                                        rect: boudingRectangle!,
