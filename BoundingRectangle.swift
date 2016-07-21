@@ -13,7 +13,7 @@ import Darwin
 
 extension Contour {
     /**
-     - returns: a straight bounding rectangle of the points in self. Precondition: the points in self should have at  least two points with difrrent row value and two points with difrrent col value
+     - returns: a straight bounding rectangle of the points in self. Precondition: the points in self should have at least two points with difrrent row value and two points with difrrent col value
      */
     func getBoundingRectangle() -> Rectangle {
         // TODO: replace minX, minY to minY, minX and the same for max
@@ -21,7 +21,7 @@ extension Contour {
         let maxY = points.last![0].0
         
         var maxX = 0
-        var minX = Int(INTMAX_MAX)
+        var minX = Int.max
         for elem in points {
             if elem[0].1 < minX {
                 minX = elem[0].1

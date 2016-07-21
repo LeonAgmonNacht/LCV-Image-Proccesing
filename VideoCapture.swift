@@ -45,8 +45,7 @@ class VideoCapture {
         if deviceIndex != -1 {
             let tempCamera = AVCaptureDevice.devices()[deviceIndex] as! AVCaptureDevice
             if !tempCamera.hasMediaType(AVMediaTypeVideo) {
-                print("Given device is not a video device, exiting!!!")
-                fatalError()
+                fatalError("Given device is not a video device, exiting!!!")
             }
             print("Camera is: \(tempCamera)")
             return tempCamera
@@ -54,8 +53,7 @@ class VideoCapture {
         else {
             let devices = AVCaptureDevice.devices(withMediaType: AVMediaTypeVideo)
             if devices?.count == 0 {
-                print("No video device found, exiting!!!")
-                fatalError()
+                fatalError("No video device found, exiting!!!")
                 
             }
             let tempCamera = devices?[0] as! AVCaptureDevice
@@ -100,8 +98,7 @@ class VideoCapture {
             
             
         } catch {
-            print("Unable to configure device, exiting!!!")
-            fatalError()
+            fatalError("Unable to configure device, exiting!!!")
         }
     }
     /**
