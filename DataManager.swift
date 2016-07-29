@@ -18,14 +18,14 @@ class DataManager {
     
     // lower color threshold
     
-    var lowerRed: UInt8 = 0
-    var lowerGreen: UInt8 = 80
-    var lowerBlue: UInt8 = 0
+    var lowerRed: UInt8 = 100
+    var lowerGreen: UInt8 = 53
+    var lowerBlue: UInt8 = 67
     
     // upper color threshold
     
-    var upperRed: UInt8 = 80
-    var upperGreen: UInt8 = 255
-    var upperBlue: UInt8 = 80
+    var upperRed: UInt8 = 255
+    var upperGreen: UInt8 = 104
+    var upperBlue: UInt8 = 132
     
 }

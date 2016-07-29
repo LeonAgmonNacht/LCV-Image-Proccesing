@@ -16,6 +16,9 @@ class SampleVideoProcessingVC: UIViewController {
     var upperThreshValues: (UInt8, UInt8, UInt8) = (0,0,0)
     var lowerThreshValues: (UInt8, UInt8, UInt8) = (0,0,0)
     
+    let viewingAngle: Float = 63.5
+    let imageWidth: Float = 288
+    
     var timer: Timer?
     var cam: VideoCapture?
     
@@ -87,7 +90,12 @@ class SampleVideoProcessingVC: UIViewController {
                                                        rect: boundingBox!,
                                                        color: (0,255,255))
                         
-                        let azimuthAngle: Float = 0.0
+                        let azimuthAngle = CalculationsHelper.getAzimuthaAngle(
+                            viewingAngle: self.viewingAngle,
+                            width: self.imageWidth,
+                            rotatedRect: boundingBox!)
+                        print("AA: " + String(azimuthAngle))
+                        print("A: " + String(boundingBox?.angle))
                         let stringToSend = self.getSampleString(angle: azimuthAngle, iod: 1.0)
                         NetworkManager.sendData(data: stringToSend)
                     }
@@ -108,8 +116,8 @@ class SampleVideoProcessingVC: UIViewController {
     
     func getSampleString(angle: Float = 3316.00,iod: Float) -> String {
         let dic = ["DFC" : "33.00",
-                   "AA" : "3316.00",
-                   "PA" : String(format: "%.2f", angle),
+                   "AA" : String(format: "%.2f", angle),
+                   "PA" : "3316.00",
                    "IOD" : String(format: "%.2f", iod)]
         let dicStringRep = String(dic)
         let noSpaceString = dicStringRep.replacingOccurrences(of: " " , with: "")

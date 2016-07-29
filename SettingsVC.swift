@@ -29,6 +29,7 @@ class SettingsVC: UIViewController {
                       DataManager.sharedInstance.upperRed,
                       DataManager.sharedInstance.upperGreen,
                       DataManager.sharedInstance.upperBlue]
+        print("values: " + String(values))
         let sliders = [lowerRed,
                        lowerGreen,
                        lowerBlue,

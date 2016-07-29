@@ -211,7 +211,7 @@ struct RotatedRectangle: RectangleProtocol {
     init(points: [(Int, Int)], slope: Float, height: Float = -1, width: Float = -1) {
         self.points = points
         self.slope = slope
-        self.angle = slope*45
+        self.angle = (slope*45) % 90
         if height != -1 && width != -1 {
             self.size = width*height
             self.height = height
@@ -244,6 +244,7 @@ struct RotatedRectangle: RectangleProtocol {
                                                x2: self.points[1].0,
                                                y2: self.points[1].1,
                                                s: -self.slope)
+        
         return [boxPoint2, boxPoint1, boxPoint3, boxPoint4]
         
     }
@@ -262,4 +263,7 @@ struct RotatedRectangle: RectangleProtocol {
         
         return (Int(xValue), Int(yValue))
     }
+}
+func % (a: Float, b: Float) -> Float {
+    return a.truncatingRemainder(dividingBy: b)
 }

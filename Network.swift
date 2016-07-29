@@ -85,5 +85,6 @@ class NetworkManager {
             }
         }
         return nil
+        // TODO: add code to make sure addresses[1] is ipv4
     }
 }
